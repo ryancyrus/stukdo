@@ -12,7 +12,7 @@
  *
  *= require_tree .
  *= require_self
- *= 
+ *= require material
  */
 
 
@@ -43,3 +43,7 @@ body,html {
 }
 
 
+#my-button {
+    background: #e91e63;
+    color: white;
+}

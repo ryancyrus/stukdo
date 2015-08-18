@@ -1,0 +1,33 @@
+<paper-scroll-header-panel drawer fixed>
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="paper-font-title">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <% if current_user %>
+          
+          <%= link_to "<iron-icon icon='info'></iron-icon>
+            <span>Tasks</span>".html_safe %>
+
+          <%= link_to "<iron-icon icon='info'></iron-icon>
+            <span>Settings</span>".html_safe, edit_user_registration_path %>
+
+          <%= link_to "<iron-icon icon='info'></iron-icon>
+            <span>Logout</span>".html_safe, destroy_user_session_path, method: :delete %>         
+
+          <% else %>
+
+          <%= link_to "<iron-icon icon='trending-flat'></iron-icon><span>Signup</span>".html_safe, new_user_registration_path %>         
+            
+          <%= link_to "<iron-icon icon='unfold-more'></iron-icon><span>Login</span>".html_safe, new_user_session_path %>
+          
+
+          <% end %>
+
+        </paper-menu>
+
+      </paper-scroll-header-panel>
+
+
