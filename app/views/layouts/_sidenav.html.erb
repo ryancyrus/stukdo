@@ -1,33 +1,17 @@
-<paper-scroll-header-panel drawer fixed>
-        <!-- Drawer Toolbar -->
-        <paper-toolbar id="drawerToolbar">
-          <span class="paper-font-title">Menu</span>
-        </paper-toolbar>
-
-        <!-- Drawer Content -->
-        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-          <% if current_user %>
-          
-          <%= link_to "<iron-icon icon='info'></iron-icon>
-            <span>Tasks</span>".html_safe %>
-
-          <%= link_to "<iron-icon icon='info'></iron-icon>
-            <span>Settings</span>".html_safe, edit_user_registration_path %>
-
-          <%= link_to "<iron-icon icon='info'></iron-icon>
-            <span>Logout</span>".html_safe, destroy_user_session_path, method: :delete %>         
-
-          <% else %>
-
-          <%= link_to "<iron-icon icon='trending-flat'></iron-icon><span>Signup</span>".html_safe, new_user_registration_path %>         
-            
-          <%= link_to "<iron-icon icon='unfold-more'></iron-icon><span>Login</span>".html_safe, new_user_session_path %>
-          
-
-          <% end %>
-
-        </paper-menu>
-
-      </paper-scroll-header-panel>
+<paper-scroll-header-panel>
+<!-- Drawer Toolbar -->
+<paper-toolbar>
+	<paper-tabs id='tabs' selected='home' self-end>
+		<% if current_user %>
+		<paper-tab name='home'><%= link_to 'Tasks' %></paper-tab>
+		<paper-tab name='home'><%= link_to "Settings", edit_user_registration_path %></paper-tab>
+		<paper-tab name='logout'><%= link_to "Logout", destroy_user_session_path, method: :delete %></paper-tab>
+		<% else %>
+		<paper-tab name='signup'><%= link_to "Signup".html_safe, new_user_registration_path %></paper-tab>
+		<paper-tab name='login'><%= link_to "Login".html_safe, new_user_session_path %></paper-tab>
+		<% end %>
+	</paper-tabs>
+</paper-toolbar>
+</paper-scroll-header-panel>
 
 

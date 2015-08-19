@@ -1,9 +1,15 @@
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+  <div class="mdl-grid">
+    <div>
+    <paper-input -container>
+      <label>Email</label>
+      <input is="iron-input">
+
+    </paper-input-container>
+        <%= f.email_field :email, autofocus: true %>
+        </div>
   </div>
 
   <div class="field">
@@ -24,3 +30,11 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+
+<form is="iron-form" id="form" method="post" action="/form/handler">
+  <paper-input name="name" label="name"></paper-input>
+  <input name="address">
+  ...
+</form>

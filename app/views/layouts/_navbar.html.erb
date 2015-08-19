@@ -1,20 +1,16 @@
-<!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar" class="tall">
-          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <span class="flex"></span>
+<paper-toolbar>
+<a href="/" class="logo" layout horizontal id='brand'>StukDo</a>
+  <span class='flex'></span>
+  <paper-toolbar layout horizontal right>
+  <paper-button borderless sink>Tasks</paper-button>
+  <paper-button borderless sink>Settings</paper-button>
+  <paper-button borderless sink>Logout</paper-button>
+</paper-toolbar>
+<paper-icon-button icon="menu" id='dropdown-toggle' role='brand'></paper-icon-button>
+<paper-dropdown>
+  <paper-item>Tasks</paper-item>
+  <paper-item>Settings</paper-item>
+  <paper-item>Logout</paper-item>
+</paper-dropdown>
+</paper-toolbar>
 
-          <!-- Toolbar icons -->
-          <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button>
-
-          <!-- Application name -->
-          <div class="middle middle-container center horizontal layout">
-            <div class="app-name">Polymer Starter Kit</div>
-          </div>
-
-          <!-- Application sub title -->
-          <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">The future of the web today</div>
-          </div>
-
-        </paper-toolbar>

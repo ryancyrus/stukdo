@@ -45,21 +45,21 @@
 <body class="fullbleed layout vertical">
   <span id="browser-sync-binding"></span>
   <template is="dom-bind" id="app">
-    <paper-drawer-panel id="paperDrawerPanel">
-      <%= render 'layouts/sidenav' %>
+    
+      
 
       <!-- Main Area -->
-      <paper-scroll-header-panel main condenses keep-condensed-header>
+      <paper-header-panel layout horizontal center start>
 
         <%= render 'layouts/navbar' %>  
-
+        </paper-header-panel>
         <!-- Main Content -->
         <div class="content">
           <%= yield %>
         </div>
         <%= render 'layouts/footer' %>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
+      
+    
   </template>
 
 
