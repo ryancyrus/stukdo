@@ -1,39 +1,49 @@
+
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--4-col"></div>
+  <div class="mdl-cell mdl-cell--4-col" style="text-align:center">
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
+<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= f.error_notification %>
+     
+  
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      <%= f.input :email, required: true, autofocus: true,label:false, input_html:{class: 'mdl-textfield__input'} %>
+      <label class="mdl-textfield__label">Email</label>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+    <% end %>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+    <%= f.input :password, autocomplete: "off", required: false,  label:false, input_html:{class: 'mdl-textfield__input'} %>
+    <label class="mdl-textfield__label">New Password</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+    <%= f.input :password_confirmation, required: false,  label:false, input_html:{class: 'mdl-textfield__input'} %>
+    <label class="mdl-textfield__label">Confirm Password</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" >
+    <%= f.input :current_password, required: true,  label:false, input_html:{class: 'mdl-textfield__input'} %>
+    <label class="mdl-textfield__label">Current Password</label>
+    </div>
+  
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
+  <div class="mdl-grid">
+      <div class="mdl-cell mdl-cell--12-col" style="text-align:center">
+      <%= f.button :submit, "Update" , :class => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent'%></div>
+    </div>
 <% end %>
+<div class="mdl-grid">
+<div class="mdl-cell mdl-cell--12-col">
+<h3>Unhappy?</h3>
 
-<h3>Cancel my account</h3>
+<%= link_to "<paper-button raised>Cancel my account</paper-button>".html_safe, registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+</div>
+</div>
 
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= link_to "<paper-button><iron-icon icon='back'></iron-icon>Back</paper-button>".html_safe, :back %>
+</div>
+<div class="mdl-cell mdl-cell--4-col"></div>
+</div>

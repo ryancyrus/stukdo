@@ -43,25 +43,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="fullbleed layout vertical">
-  <span id="browser-sync-binding"></span>
-  <template is="dom-bind" id="app">
-    <paper-drawer-panel id="paperDrawerPanel">
-      <%= render 'layouts/sidenav' %>
+  
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <%= render 'layouts/navig' %>
+  <main class="mdl-layout__content" >
+    <div class="page-content" style="height:900px"><br>
+<br><%= yield %></div>
+    <%= render 'layouts/footer' %>
+  </main>
 
-      <!-- Main Area -->
-      <paper-scroll-header-panel main condenses keep-condensed-header>
-
-        <%= render 'layouts/navbar' %>  
-
-        <!-- Main Content -->
-        <div class="content">
-          <%= yield %>
-        </div>
-        <%= render 'layouts/footer' %>
-      </paper-scroll-header-panel>
-    </paper-drawer-panel>
-  </template>
-
+   
 
 <script type="text/javascript">
   

@@ -1,0 +1,50 @@
+<!-- Header -->
+<header class="mdl-layout__header">
+	<div class="mdl-layout__header-row">
+		<!-- Logo -->
+		<i class="material-icons">today</i>
+		<!-- Title -->
+		<%= link_to "StukDo", root_path, :class => 'brand-title' %>
+		
+		<!-- Add Spacer to align links to right -->
+		<div class="mdl-layout-spacer"></div>
+		<nav class="mdl-navigation mdl-layout--large-screen-only">
+			<% if current_user %>
+			<a class="mdl-navigation__link" href="#">Tasks</a>
+			
+			<%= link_to "Settings", edit_user_registration_path, :class => 'mdl-navigation__link' %>
+			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'mdl-navigation__link' %>
+			<% else %>	
+			<!-- <a class="mdl-navigation__link" href="#">Login</a> -->
+			<%= link_to "Login", new_user_session_path, :class => 'mdl-navigation__link' %>
+			<%= link_to "SignUp", new_user_registration_path, :class => 'mdl-navigation__link' %>
+			
+			<% end %>	
+		</nav>
+		
+	</div>
+</header>	
+<div class="mdl-layout__drawer">
+	<!-- Logo -->
+	<!-- <i class="material-icons">today</i> -->
+	<!-- Title -->
+	<span class="mdl-layout-title">Stukdo</span>
+
+
+	<nav class="mdl-navigation">
+		<% if current_user %>
+		<a class="mdl-navigation__link" href="#">Tasks</a>
+		<a class="mdl-navigation__link" href="#">Settings</a>
+		<a class="mdl-navigation__link" href="#">Logout</a>
+		<%= link_to "Logout", destroy_user_session_path,method: :delete, :class => 'mdl-navigation__link' %>
+		<% else %>	
+		<!-- <a class="mdl-navigation__link" href="#">Login</a> -->
+		<%= link_to "Login", new_user_session_path, :class => 'mdl-navigation__link' %>
+		<%= link_to "SignUp", new_user_registration_path, :class => 'mdl-navigation__link' %>
+		
+		<% end %>	
+	</nav>
+	<script type="text/javascript">
+		componentHandler.upgradeDom();
+	</script>
+</div>
