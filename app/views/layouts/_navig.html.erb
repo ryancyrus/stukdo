@@ -10,10 +10,10 @@
 		<div class="mdl-layout-spacer"></div>
 		<nav class="mdl-navigation mdl-layout--large-screen-only">
 			<% if current_user %>
-			<a class="mdl-navigation__link" href="#">Tasks</a>
+			<%= link_to "<paper-button>Tasks</paper-button>".html_safe, tasks_path %>
+			<%= link_to "<paper-button>Settings</paper-button>".html_safe, edit_user_registration_path %>
 			
-			<%= link_to "Settings", edit_user_registration_path, :class => 'mdl-navigation__link' %>
-			<%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'mdl-navigation__link' %>
+			<%= link_to "<paper-button>Logout</paper-button>".html_safe, destroy_user_session_path, method: :delete %>
 			<% else %>	
 			<!-- <a class="mdl-navigation__link" href="#">Login</a> -->
 			<%= link_to "Login", new_user_session_path, :class => 'mdl-navigation__link' %>
