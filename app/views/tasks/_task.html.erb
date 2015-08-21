@@ -1,0 +1,42 @@
+<!-- <paper-card heading='<%= time_ago_in_words(task.created_at) %> ago' vertical layout center>
+      <div class="card-content"><%=task.content %></div>
+      <div class="card-actions" style="text-align:center">
+        <% if task.state == 'doing' %>
+          <td><%=  link_to '<paper-button >To do</paper-button>'.html_safe, change_task_path(task, state:'to_do'), method: :put %></td>
+          <td><%=  link_to '<paper-button >Done</paper-button>'.html_safe, change_task_path(task, state:'done'), method: :put %></td>
+        <% else %>
+          <td><%=  link_to '<paper-button >Mark as Doing</paper-button>'.html_safe, change_task_path(task, state:'doing'), method: :put %></td>
+        <% end %>
+      </div>
+    </paper-card>
+ -->
+
+    <div class="demo-card-square mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title mdl-card--expand">
+    <h2 class="mdl-card__title-text"><%= time_ago_in_words(task.created_at) %>  ago</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    <%= task.content %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <% if task.state == 'doing' %>
+          <td><%=  link_to '<paper-button >To do</paper-button>'.html_safe, change_task_path(task, state:'to_do'), method: :put %></td>
+          <td><%=  link_to '<paper-button >Done</paper-button>'.html_safe, change_task_path(task, state:'done'), method: :put %></td>
+        <% else %>
+          <td><%=  link_to '<paper-button >Mark as Doing</paper-button>'.html_safe, change_task_path(task, state:'doing'), method: :put %></td>
+        <% end %>
+  </div>
+</div>
+<br>
+
+<style>
+.demo-card-square.mdl-card {
+  width: 320px;
+  height: 320px;
+}
+.demo-card-square > .mdl-card__title {
+  color: #fff;
+  background:
+    #46B6AC;
+}
+</style>

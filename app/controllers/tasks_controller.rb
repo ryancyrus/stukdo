@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
-
+  
   # GET /tasks
   # GET /tasks.json
   def index
@@ -77,6 +77,8 @@ class TasksController < ApplicationController
       format.json { render :show}
      end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.
