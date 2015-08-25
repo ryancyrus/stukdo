@@ -1,0 +1,33 @@
+  
+<div class="card state-change">
+  <div class="content">
+    <div class="header">
+      <% from_time = Time.now %>
+      <%= distance_of_time_in_words(from_time, task.duedate) %> left
+      <div class="right floated">
+        <%= link_to '<i class="close icon meta"></i>'.html_safe, task_path(task), method: :delete %>
+        
+      </div>
+    </div>
+    <div class="description">
+      <%= task.content %>
+    </div>
+  </div>
+  <div class="extra content">
+    <% if task.state == 'doing' %>
+    <div class="ui buttons">
+      <%= link_to 'Mark as To Do', change_task_path(task, state: 'to_do'), method: :put, class: 'ui basic red button' %>
+      <%= link_to 'Mark as Done', change_task_path(task, state: 'done'), method: :put, class: 'ui basic green button' %>
+    </div>
+    <% elsif task.state == 'done' %>
+    <div class="ui buttons">
+      <%= link_to 'Mark as To Do', change_task_path(task, state: 'to_do'), method: :put, class: 'ui basic red button' %>
+      <%= link_to 'Mark as Doing', change_task_path(task, state: 'doing'), method: :put, class: 'ui basic yellow button' %>
+    </div>
+    <% else %>
+
+    <%= link_to 'Mark as Doing', change_task_path(task, state: 'doing'), method: :put, class: 'ui basic yellow button' %>
+    <%  end %>
+  </div>
+</div>
+
