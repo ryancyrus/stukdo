@@ -24,6 +24,6 @@ module Stukdo
     config.active_record.raise_in_transactional_callbacks = true
     # Add bower assets to Rails Assets Pipeline
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
-    
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
