@@ -13,5 +13,5 @@
  *= require_tree .
  *= require_self
  *= require semantic-ui/dist/semantic
- *= require font-awesome
+ 
  */
