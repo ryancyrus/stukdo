@@ -5,7 +5,7 @@
       <% from_time = Time.now %>
       <%= distance_of_time_in_words(from_time, task.duedate) %> left
       <div class="right floated">
-        <%= link_to '<i class="close icon meta"></i>'.html_safe, task_path(task), method: :delete %>
+        <%= link_to '<i class="fa fa-times meta"></i>'.html_safe, task_path(task), method: :delete %>
         
       </div>
     </div>
